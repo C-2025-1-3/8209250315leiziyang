@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+#include<cstring>
+int parseHex(const char* const hexString)
+{
+	int len = strlen(hexString);
+	for(int i=0;i<len;i++)
+
+}
