@@ -1,0 +1,58 @@
+1.1
+#include<iostream>
+using namespace std;
+int min(int a, int b)
+{
+	return a < b ? a : b;
+}
+int gcd(int a, int b)
+{
+	for (int i = min(a,b);i>=1; i--)
+		if(a%i==0&&b%i==0)
+			return i;
+}
+int main()
+{
+	int m, n;
+	cin >> m >> n;
+	cout << "m,n的最大公约数为：" << gcd(m, n) << endl;
+}
+1.2
+#include<iostream>
+using namespace std;
+int min(int a, int b)
+{
+	return a < b ? a : b;
+}
+int max(int a, int b)
+{
+	return a > b ? a : b;
+}
+int gcd(int &a,int &b)
+{
+	  a = a > 0 ? a : -a;
+	  b = b > 0 ? b : -b;
+	for (int i = min(a, b); i >= 1; i--)
+	{
+		if (a % i == 0 && b % i == 0)
+			return i;
+	}
+}
+int lcm(int& a, int& b)
+{
+	a = a > 0 ? a : -a;
+	b = b > 0 ? b : -b;
+	for (int i = max(a, b); i >= 1; i++)
+	{
+		if (i % a == 0 && i % b == 0)
+			return i;
+	}
+}
+int main()
+{
+    int m, n;
+	cin >> m >> n;
+	cout << "最大公约数为：" << gcd(m, n) << "\n";
+	cout<< "最小公倍数为：" << lcm(m, n) << endl;
+	return 0;
+}
