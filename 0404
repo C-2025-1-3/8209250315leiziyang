@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+void merge(const int list1[], int size1, const int list2[], int size2, int list3[])
+{
+	int i=0, j=0, k=0;
+	while (i < size1 && j < size2)
+	{
+		list3[k++] = (list1[i] < list2[j]) ? list1[i++] : list2[j++];
+	}
+	while (i < size1)
+	{
+		list3[k++] = list1[i++];
+	}
+	while (j < size2)
+	{
+		list3[k++] = list2[j++];
+	}
+}
+int main()
+{
+	int list1[80],list2[80], list3[160];
+	int n1, n2;
+	cout << "请输入第一个数组： ";
+	cin >> n1;
+	for (int i = 0; i < n1; i++)
+	{
+		cin >> list1[i];
+	}
+	cout << "请输入第二个数组： ";
+	cin >> n2;
+	for (int j = 0; j < n2; j++)
+	{
+		cin >> list2[j];
+	}
+	merge(list1, n1, list2, n2, list3);
+	cout << "合并后的数组为： ";
+	for (int i = 0; i < n1 + n2; i++)
+	{
+		cout << list3[i] << " ";
+	}
+	cout << endl;
+	return 0;
+}
