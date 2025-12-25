@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int nums[10];
+	int x;
+	int n= 0;
+	cout << "Enter ten numbers: ";
+	for (int i = 0; i < 10; i++)
+    {
+		cin >> x;
+	int j;
+	for (j = 0; j < n; j++)
+		if (nums[j] == x)
+			break;
+	if (j == n)
+	{
+		nums[n] = x;
+		n++;
+	}
+    }
+	cout << "The distinct numbers are: ";
+	for (int i = 0; i < n; i++)
+		cout << nums[i] << " ";
+	cout << endl;
+	return 0;
+}
