@@ -1,0 +1,43 @@
+void BubbleSort(int  arr[], int n)
+{
+	for (int i = 0; i < n - 1; i++)
+	{
+		for (int j = 0; j < n - 1 - i; j++)
+		{
+			if (arr[j] > arr[j + 1])
+			{
+				double temp = arr[j + 1];
+				arr[j + 1] = arr[j];
+				arr[j] = temp;
+			}
+		}
+	}
+}
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int n;
+	cout << "请输入元素个数：";
+	cin >> n;
+	int* arr = new int[n];
+	cout << "请输入数组元素：";
+	for (int i = 0; i < n; i++)
+		cin >> *(arr + i);
+	cout << "排序前的数组为： ";
+		for (int i = 0; i < n; i++)
+		{
+			 cout<< *(arr + i) << " ";
+		}
+		BubbleSort(arr, n);
+		cout << "排序后的数组为： ";
+		for (int i = 0; i < n; i++)
+		{
+			 cout<< *(arr + i)<< " ";
+		}
+		cout << endl;
+		delete []arr;
+		arr = NULL;
+		return 0;
+}
