@@ -1,0 +1,31 @@
+#include<iostream>
+#include<cctype>
+using namespace std;
+void count(const char s[], int counts[])
+{
+	for (int i = 0; i < 26; i++)
+	{
+		counts[i] = 0;
+	}
+	int id = 0;
+	while (s[id] != '\0') {
+		char ch = s[id];
+		if (isalpha(ch)) {
+			counts[tolower(ch) - 'a']++;
+		}
+		id++;
+	}
+}
+int main() {
+	char s[100];
+	int counts[26];
+	cout << "enter a string: ";
+	cin.getline(s, 100);
+	count(s, counts);
+	for (int i = 0; i < 26; i++) {
+		if (counts[i]) {
+			cout << (char)('a' + i) << ":" << counts[i] << "times\n";
+		}
+	}
+	return 0;
+}
