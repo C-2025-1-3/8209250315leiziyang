@@ -3,7 +3,34 @@ using namespace std;
 #include<cstring>
 int parseHex(const char* const hexString)
 {
-	int len = strlen(hexString);
-	for(int i=0;i<len;i++)
-
+	int result = 0;
+	int i = 0;
+	while (hexString[i] != 0) {
+		char ch = hexString[i];
+		int now = 0;
+		if (ch >= '0' && ch <= '9') {
+			now = ch - '0';
+		}
+		else if (ch >= 'a' && ch <= 'f') {
+			now = 10 + (ch - 'a');
+		}
+		else if (ch >= 'A' && ch <= 'F') {
+			now = 10 + (ch - 'A');
+		}
+		else {
+			cout << "false!" << endl;
+			return 0;
+		}
+		result = result * 16 + now;
+		i++;
+	}
+	return result;
+}
+int main() 
+{
+	char hexString[100];
+	cout << "请输入十六进制字符串：";
+	cin >> hexString;
+	cout << "转化后的十进制数为：" << parseHex(hexString) << endl;
+	return 0;
 }
